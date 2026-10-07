@@ -1,0 +1,39 @@
+# Part 2 stack: MLflow tracking server + FastAPI inference service + Streamlit prediction/monitoring UI.
+#   python -m severity_model.train      # (on the host) trains + exports models/champion
+#   docker compose up -d --build
+#   API docs   -> http://localhost:8000/docs
+#   MLflow UI  -> http://localhost:5000
+#   UI         -> http://localhost:8502
+services:
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.16.2
+    command: >
+      mlflow server --host 0.0.0.0 --port 5000
+      --backend-store-uri sqlite:////mlflow/mlflow.db
+      --artifacts-destination /mlflow/mlartifacts --serve-artifacts
+    volumes:
+      - ./mlflow-server:/mlflow
+    ports: ["5000:5000"]
+
+  api:
+    build: .
+    image: traffic-severity-api:latest
+    environment:
+      PREDICTION_LOG_PATH: /app/logs/predictions.jsonl
+    volumes:
+      - ./logs:/app/logs          # prediction log shared with the monitoring job
+    ports: ["8000:8000"]
+
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+    environment:
+      API_URL: http://api:8000
+      REPORTS_DIR: /app/reports
+      CHAMPION_DIR: /app/models/champion
+    volumes:
+      - ./reports:/app/reports:ro
+      - ./models/champion:/app/models/champion:ro
+    ports: ["8502:8501"]
+    depends_on: [api]

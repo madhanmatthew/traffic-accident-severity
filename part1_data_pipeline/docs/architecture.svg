@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 560" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+    <style>
+      .layer{font-size:12px;font-weight:600;fill:#555;letter-spacing:.5px}
+      .box{stroke:#333;stroke-width:1.2;rx:8}
+      .t{font-weight:600}
+      .s{font-size:11px;fill:#333}
+      .ln{stroke:#444;stroke-width:1.6;fill:none;marker-end:url(#a)}
+      .dash{stroke-dasharray:6 4}
+    </style>
+  </defs>
+  <rect width="1180" height="560" fill="#ffffff"/>
+  <text x="20" y="30" font-size="18" font-weight="700">Project 4 - Traffic Accident Severity: data &amp; MLOps architecture</text>
+
+  <!-- layer labels -->
+  <text class="layer" x="30" y="70">SOURCE</text>
+  <text class="layer" x="210" y="70">INGESTION</text>
+  <text class="layer" x="400" y="70">RAW / STAGING / CLEANED</text>
+  <text class="layer" x="625" y="70">TRANSFORMATION</text>
+  <text class="layer" x="815" y="70">STORAGE</text>
+  <text class="layer" x="1010" y="70">ANALYTICS</text>
+
+  <!-- sources -->
+  <rect class="box" x="20" y="85" width="160" height="62" fill="#e8f1fb"/>
+  <text class="t" x="30" y="107">DfT STATS19</text>
+  <text class="s" x="30" y="124">collision / vehicle /</text>
+  <text class="s" x="30" y="139">casualty CSV (2023-24)</text>
+  <rect class="box" x="20" y="162" width="160" height="62" fill="#e8f1fb"/>
+  <text class="t" x="30" y="184">Open-Meteo API</text>
+  <text class="s" x="30" y="201">hourly historical weather</text>
+  <text class="s" x="30" y="216">per 1 deg grid cell</text>
+  <rect class="box dash" x="20" y="239" width="160" height="48" fill="#f4f4f4"/>
+  <text class="t" x="30" y="259">OpenStreetMap</text>
+  <text class="s" x="30" y="276">optional (future)</text>
+
+  <!-- ingestion -->
+  <rect class="box" x="200" y="85" width="170" height="202" fill="#fff4e0"/>
+  <text class="t" x="210" y="107">Python ingestion</text>
+  <text class="s" x="210" y="127">requests + retry/back-off</text>
+  <text class="s" x="210" y="144">rate-limit pacing</text>
+  <text class="s" x="210" y="161">raw-file cache (CACHED)</text>
+  <text class="s" x="210" y="185">ingestion_log.csv:</text>
+  <text class="s" x="210" y="201">source, url, time, status,</text>
+  <text class="s" x="210" y="217">HTTP code, rows, bytes,</text>
+  <text class="s" x="210" y="233">sha256, errors</text>
+  <text class="s" x="210" y="257">orchestrated by Airflow</text>
+  <text class="s" x="210" y="273">(monthly, retries)</text>
+
+  <!-- layers -->
+  <rect class="box" x="390" y="85" width="200" height="50" fill="#f0f0f0"/>
+  <text class="t" x="400" y="106">raw/&lt;run_id&gt;</text>
+  <text class="s" x="400" y="124">immutable copies of CSV / JSON</text>
+  <rect class="box" x="390" y="148" width="200" height="50" fill="#f0f0f0"/>
+  <text class="t" x="400" y="169">staging/&lt;run_id&gt; (Parquet)</text>
+  <text class="s" x="400" y="187">names harmonised, types cast</text>
+  <rect class="box" x="390" y="211" width="200" height="76" fill="#f0f0f0"/>
+  <text class="t" x="400" y="232">cleaned/&lt;run_id&gt;</text>
+  <text class="s" x="400" y="250">22 DQ rules (REJECT/NULLIFY)</text>
+  <text class="s" x="400" y="266">rejected/ error log + gate</text>
+  <text class="s" x="400" y="281">(fail if &gt;5% rejected)</text>
+
+  <!-- transform -->
+  <rect class="box" x="615" y="85" width="175" height="202" fill="#eaf6ea"/>
+  <text class="t" x="625" y="107">Transform</text>
+  <text class="s" x="625" y="127">code -&gt; label lookups</text>
+  <text class="s" x="625" y="144">date/time standardised</text>
+  <text class="s" x="625" y="161">weather join:</text>
+  <text class="s" x="635" y="177">grid cell + local hour</text>
+  <text class="s" x="625" y="194">vehicle/casualty features</text>
+  <text class="s" x="625" y="211">dims + surrogate keys</text>
+  <text class="s" x="625" y="228">aggregates (hour, day,</text>
+  <text class="s" x="635" y="244">road, weather, hotspots)</text>
+  <text class="s" x="625" y="261">model-ready table</text>
+  <text class="s" x="625" y="277">(leakage columns removed)</text>
+
+  <!-- storage -->
+  <rect class="box" x="810" y="85" width="180" height="202" fill="#efe8fb"/>
+  <text class="t" x="820" y="107">PostgreSQL + PostGIS</text>
+  <text class="s" x="820" y="125">(SQLite fallback locally)</text>
+  <text class="s" x="820" y="147">dim_date, dim_time,</text>
+  <text class="s" x="820" y="163">dim_location, dim_road,</text>
+  <text class="s" x="820" y="179">dim_weather, dim_severity</text>
+  <text class="s" x="820" y="197">fact_accident (+geom)</text>
+  <text class="s" x="820" y="213">fact_vehicle, fact_casualty</text>
+  <text class="s" x="820" y="231">agg_* / mart_* (6 tables)</text>
+  <text class="s" x="820" y="247">ml_accident_features</text>
+  <text class="s" x="820" y="265">etl_* logs, dq_rejected</text>
+  <text class="s" x="820" y="281">verify: counts + FKs</text>
+
+  <!-- analytics -->
+  <rect class="box" x="1010" y="85" width="155" height="120" fill="#fde8e8"/>
+  <text class="t" x="1020" y="107">Streamlit dashboard</text>
+  <text class="s" x="1020" y="127">KPIs, severity mix</text>
+  <text class="s" x="1020" y="143">hour x weekday</text>
+  <text class="s" x="1020" y="159">weather/road impact</text>
+  <text class="s" x="1020" y="175">hotspot map</text>
+  <text class="s" x="1020" y="191">vehicles, casualties, DQ</text>
+
+  <!-- arrows part 1 -->
+  <path class="ln" d="M180,116 H200"/>
+  <path class="ln" d="M180,193 H200"/>
+  <path class="ln" d="M370,110 H390"/>
+  <path class="ln" d="M490,135 V148"/>
+  <path class="ln" d="M490,198 V211"/>
+  <path class="ln" d="M590,249 H602 V186 H615"/>
+  <path class="ln" d="M790,186 H810"/>
+  <path class="ln" d="M990,145 H1010"/>
+
+  <!-- MLOps layer -->
+  <line x1="20" y1="315" x2="1165" y2="315" stroke="#999" stroke-dasharray="4 4"/>
+  <text class="layer" x="30" y="340">MLOPS LAYER (PART 2)</text>
+
+  <rect class="box" x="20" y="355" width="190" height="110" fill="#e0f3f8"/>
+  <text class="t" x="30" y="377">Training pipeline</text>
+  <text class="s" x="30" y="396">chronological split</text>
+  <text class="s" x="30" y="412">RF / XGBoost / LightGBM</text>
+  <text class="s" x="30" y="428">class weighting</text>
+  <text class="s" x="30" y="444">one sklearn Pipeline</text>
+  <text class="s" x="30" y="458">(features+prep+model)</text>
+
+  <rect class="box" x="240" y="355" width="190" height="110" fill="#e0f3f8"/>
+  <text class="t" x="250" y="377">MLflow</text>
+  <text class="s" x="250" y="396">params, macro-F1, recall,</text>
+  <text class="s" x="250" y="412">KSI FNR, confusion matrix</text>
+  <text class="s" x="250" y="428">Model Registry versions</text>
+  <text class="s" x="250" y="444">alias @champion</text>
+  <text class="s" x="250" y="458">champion/challenger gate</text>
+
+  <rect class="box" x="460" y="355" width="190" height="110" fill="#e0f3f8"/>
+  <text class="t" x="470" y="377">FastAPI in Docker</text>
+  <text class="s" x="470" y="396">/predict, /predict/batch</text>
+  <text class="s" x="470" y="412">/health, /metrics</text>
+  <text class="s" x="470" y="428">pydantic validation</text>
+  <text class="s" x="470" y="444">prediction log (JSONL)</text>
+
+  <rect class="box" x="680" y="355" width="200" height="110" fill="#e0f3f8"/>
+  <text class="t" x="690" y="377">Monitoring</text>
+  <text class="s" x="690" y="396">input data quality</text>
+  <text class="s" x="690" y="412">feature / class / location</text>
+  <text class="s" x="690" y="428">drift (PSI), KSI FNR,</text>
+  <text class="s" x="690" y="444">latency, failures</text>
+  <text class="s" x="690" y="458">-&gt; retraining decision</text>
+
+  <rect class="box" x="910" y="355" width="255" height="110" fill="#e0f3f8"/>
+  <text class="t" x="920" y="377">Streamlit prediction UI</text>
+  <text class="s" x="920" y="396">calls the API, model card,</text>
+  <text class="s" x="920" y="412">monitoring reports</text>
+  <text class="t" x="920" y="438">Airflow lifecycle DAG</text>
+  <text class="s" x="920" y="456">weekly monitor -&gt; branch -&gt; retrain</text>
+
+  <path class="ln" d="M900,287 V330 H115 V355"/>
+  <text class="s" x="560" y="327">ml_accident_features</text>
+  <path class="ln" d="M210,410 H240"/>
+  <path class="ln" d="M430,410 H460"/>
+  <path class="ln" d="M650,410 H680"/>
+  <path class="ln" d="M880,410 H910"/>
+  <path class="ln dash" d="M780,465 V500 H115 V465"/>
+  <text class="s" x="330" y="518">retrain when policy is triggered (drift, macro-F1 drop, KSI FNR rise, model age)</text>
+</svg>

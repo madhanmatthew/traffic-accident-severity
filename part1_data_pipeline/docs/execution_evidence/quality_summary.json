@@ -1,0 +1,35 @@
+{
+  "run_id": "20261007T050603Z",
+  "input_rows": {
+    "collisions": 205185,
+    "vehicles": 373329,
+    "casualties": 261249,
+    "weather_hourly": 1026312
+  },
+  "clean_rows": {
+    "collisions": 205173,
+    "vehicles": 373308,
+    "casualties": 261236,
+    "weather_hourly": 1026312
+  },
+  "rule_hits": [
+    {
+      "rule_id": "DQ007",
+      "action": "REJECT",
+      "rows": 12,
+      "description": "latitude/longitude missing"
+    },
+    {
+      "rule_id": "DQ101",
+      "action": "REJECT",
+      "rows": 21,
+      "description": "vehicle has no matching cleaned collision (orphan)"
+    },
+    {
+      "rule_id": "DQ201",
+      "action": "REJECT",
+      "rows": 13,
+      "description": "casualty has no matching cleaned collision (orphan)"
+    }
+  ]
+}

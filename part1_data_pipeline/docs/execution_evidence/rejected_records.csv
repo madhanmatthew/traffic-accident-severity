@@ -1,0 +1,47 @@
+run_id,table_name,record_id,rule_id,action,field,value,description,source_file
+20261007T050603Z,collisions,2023622300593,DQ007,REJECT,latitude,<null>,latitude/longitude missing,dft-road-casualty-statistics-collision-2023.csv
+20261007T050603Z,collisions,2023122301278,DQ007,REJECT,latitude,<null>,latitude/longitude missing,dft-road-casualty-statistics-collision-2023.csv
+20261007T050603Z,collisions,2023430039147,DQ007,REJECT,latitude,<null>,latitude/longitude missing,dft-road-casualty-statistics-collision-2023.csv
+20261007T050603Z,collisions,2023622300936,DQ007,REJECT,latitude,<null>,latitude/longitude missing,dft-road-casualty-statistics-collision-2023.csv
+20261007T050603Z,collisions,2023122300564,DQ007,REJECT,latitude,<null>,latitude/longitude missing,dft-road-casualty-statistics-collision-2023.csv
+20261007T050603Z,collisions,2023302301975,DQ007,REJECT,latitude,<null>,latitude/longitude missing,dft-road-casualty-statistics-collision-2023.csv
+20261007T050603Z,collisions,2023052301429,DQ007,REJECT,latitude,<null>,latitude/longitude missing,dft-road-casualty-statistics-collision-2023.csv
+20261007T050603Z,collisions,2023600A06213,DQ007,REJECT,latitude,<null>,latitude/longitude missing,dft-road-casualty-statistics-collision-2023.csv
+20261007T050603Z,collisions,2023622300986,DQ007,REJECT,latitude,<null>,latitude/longitude missing,dft-road-casualty-statistics-collision-2023.csv
+20261007T050603Z,collisions,202360A107041,DQ007,REJECT,latitude,<null>,latitude/longitude missing,dft-road-casualty-statistics-collision-2023.csv
+20261007T050603Z,collisions,2023122300165,DQ007,REJECT,latitude,<null>,latitude/longitude missing,dft-road-casualty-statistics-collision-2023.csv
+20261007T050603Z,collisions,2023122300751,DQ007,REJECT,latitude,<null>,latitude/longitude missing,dft-road-casualty-statistics-collision-2023.csv
+20261007T050603Z,vehicles,2023122300165|1,DQ101,REJECT,collision_index,2023122300165,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023430039147|2,DQ101,REJECT,collision_index,2023430039147,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023302301975|1,DQ101,REJECT,collision_index,2023302301975,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023122300564|2,DQ101,REJECT,collision_index,2023122300564,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023622300936|1,DQ101,REJECT,collision_index,2023622300936,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023622300593|2,DQ101,REJECT,collision_index,2023622300593,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023052301429|2,DQ101,REJECT,collision_index,2023052301429,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023122301278|2,DQ101,REJECT,collision_index,2023122301278,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023122300751|1,DQ101,REJECT,collision_index,2023122300751,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023622300936|2,DQ101,REJECT,collision_index,2023622300936,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023052301429|1,DQ101,REJECT,collision_index,2023052301429,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,202360A107041|1,DQ101,REJECT,collision_index,202360A107041,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023622300986|3,DQ101,REJECT,collision_index,2023622300986,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023122300564|1,DQ101,REJECT,collision_index,2023122300564,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023430039147|1,DQ101,REJECT,collision_index,2023430039147,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023622300593|1,DQ101,REJECT,collision_index,2023622300593,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023622300986|1,DQ101,REJECT,collision_index,2023622300986,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023622300986|2,DQ101,REJECT,collision_index,2023622300986,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023122301278|1,DQ101,REJECT,collision_index,2023122301278,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023600A06213|2,DQ101,REJECT,collision_index,2023600A06213,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,vehicles,2023600A06213|1,DQ101,REJECT,collision_index,2023600A06213,vehicle has no matching cleaned collision (orphan),dft-road-casualty-statistics-vehicle-2023.csv
+20261007T050603Z,casualties,2023622300986|5,DQ201,REJECT,collision_index,2023622300986,casualty has no matching cleaned collision (orphan),dft-road-casualty-statistics-casualty-2023.csv
+20261007T050603Z,casualties,2023622300986|4,DQ201,REJECT,collision_index,2023622300986,casualty has no matching cleaned collision (orphan),dft-road-casualty-statistics-casualty-2023.csv
+20261007T050603Z,casualties,2023122301278|1,DQ201,REJECT,collision_index,2023122301278,casualty has no matching cleaned collision (orphan),dft-road-casualty-statistics-casualty-2023.csv
+20261007T050603Z,casualties,2023600A06213|1,DQ201,REJECT,collision_index,2023600A06213,casualty has no matching cleaned collision (orphan),dft-road-casualty-statistics-casualty-2023.csv
+20261007T050603Z,casualties,2023052301429|1,DQ201,REJECT,collision_index,2023052301429,casualty has no matching cleaned collision (orphan),dft-road-casualty-statistics-casualty-2023.csv
+20261007T050603Z,casualties,2023302301975|1,DQ201,REJECT,collision_index,2023302301975,casualty has no matching cleaned collision (orphan),dft-road-casualty-statistics-casualty-2023.csv
+20261007T050603Z,casualties,2023122300751|1,DQ201,REJECT,collision_index,2023122300751,casualty has no matching cleaned collision (orphan),dft-road-casualty-statistics-casualty-2023.csv
+20261007T050603Z,casualties,2023622300936|1,DQ201,REJECT,collision_index,2023622300936,casualty has no matching cleaned collision (orphan),dft-road-casualty-statistics-casualty-2023.csv
+20261007T050603Z,casualties,2023122300564|1,DQ201,REJECT,collision_index,2023122300564,casualty has no matching cleaned collision (orphan),dft-road-casualty-statistics-casualty-2023.csv
+20261007T050603Z,casualties,202360A107041|1,DQ201,REJECT,collision_index,202360A107041,casualty has no matching cleaned collision (orphan),dft-road-casualty-statistics-casualty-2023.csv
+20261007T050603Z,casualties,2023430039147|1,DQ201,REJECT,collision_index,2023430039147,casualty has no matching cleaned collision (orphan),dft-road-casualty-statistics-casualty-2023.csv
+20261007T050603Z,casualties,2023622300593|1,DQ201,REJECT,collision_index,2023622300593,casualty has no matching cleaned collision (orphan),dft-road-casualty-statistics-casualty-2023.csv
+20261007T050603Z,casualties,2023122300165|1,DQ201,REJECT,collision_index,2023122300165,casualty has no matching cleaned collision (orphan),dft-road-casualty-statistics-casualty-2023.csv

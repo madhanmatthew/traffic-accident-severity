@@ -1,0 +1,44 @@
+2026-10-07 10:36:03,797 | INFO    | traffic_pipeline | === pipeline run 20261007T050603Z started ===
+2026-10-07 10:36:05,765 | INFO    | traffic_pipeline | [20261007T050603Z] step 'extract_stats19' started
+2026-10-07 10:36:05,933 | INFO    | traffic_pipeline | collision 2023: 104258 rows (CACHED)
+2026-10-07 10:36:06,141 | INFO    | traffic_pipeline | vehicle 2023: 189815 rows (CACHED)
+2026-10-07 10:36:06,279 | INFO    | traffic_pipeline | casualty 2023: 132977 rows (CACHED)
+2026-10-07 10:36:06,443 | INFO    | traffic_pipeline | collision 2024: 100927 rows (CACHED)
+2026-10-07 10:36:06,641 | INFO    | traffic_pipeline | vehicle 2024: 183514 rows (CACHED)
+2026-10-07 10:36:06,741 | INFO    | traffic_pipeline | casualty 2024: 128272 rows (CACHED)
+2026-10-07 10:36:06,741 | INFO    | traffic_pipeline | [20261007T050603Z] step 'extract_stats19' finished in 1.0s {'rows_out': 839763}
+2026-10-07 10:36:06,741 | INFO    | traffic_pipeline | [20261007T050603Z] step 'stage_stats19' started
+2026-10-07 10:36:24,939 | INFO    | traffic_pipeline | [20261007T050603Z] step 'stage_stats19' finished in 18.2s {'rows_in': 839763, 'rows_out': 839763}
+2026-10-07 10:36:24,939 | INFO    | traffic_pipeline | [20261007T050603Z] step 'extract_weather' started
+2026-10-07 10:36:25,421 | INFO    | traffic_pipeline | Weather 2023: 59 cells (0 cached, 59 to fetch)
+2026-10-07 10:40:08,471 | INFO    | traffic_pipeline | Weather 2024: 58 cells (0 cached, 58 to fetch)
+2026-10-07 10:43:34,808 | INFO    | traffic_pipeline | [20261007T050603Z] step 'extract_weather' finished in 429.9s {'rows_out': 117}
+2026-10-07 10:43:34,808 | INFO    | traffic_pipeline | [20261007T050603Z] step 'stage_weather' started
+2026-10-07 10:43:40,941 | INFO    | traffic_pipeline | [20261007T050603Z] step 'stage_weather' finished in 6.1s {'rows_in': 117, 'rows_out': 1026312}
+2026-10-07 10:43:40,941 | INFO    | traffic_pipeline | [20261007T050603Z] step 'validate_and_clean' started
+2026-10-07 10:43:51,587 | INFO    | traffic_pipeline | [20261007T050603Z] step 'validate_and_clean' finished in 10.6s {'rows_in': 1866075, 'rows_out': 1866029}
+2026-10-07 10:43:51,587 | INFO    | traffic_pipeline | [20261007T050603Z] step 'transform' started
+2026-10-07 10:44:04,552 | INFO    | traffic_pipeline | [20261007T050603Z] step 'transform' finished in 13.0s {'rows_in': 205173, 'rows_out': 205173}
+2026-10-07 10:44:04,552 | INFO    | traffic_pipeline | [20261007T050603Z] step 'build_marts' started
+2026-10-07 10:44:10,412 | INFO    | traffic_pipeline | [20261007T050603Z] step 'build_marts' finished in 5.8s {'rows_in': 205173, 'rows_out': 10188}
+2026-10-07 10:44:10,413 | INFO    | traffic_pipeline | [20261007T050603Z] step 'load_warehouse' started
+2026-10-07 10:44:15,191 | INFO    | traffic_pipeline | loaded dim_date                      731 rows
+2026-10-07 10:44:15,301 | INFO    | traffic_pipeline | loaded dim_time                       24 rows
+2026-10-07 10:44:15,420 | INFO    | traffic_pipeline | loaded dim_location                 1071 rows
+2026-10-07 10:44:15,588 | INFO    | traffic_pipeline | loaded dim_road                     2071 rows
+2026-10-07 10:44:15,718 | INFO    | traffic_pipeline | loaded dim_weather                  2743 rows
+2026-10-07 10:44:15,801 | INFO    | traffic_pipeline | loaded dim_severity                    3 rows
+2026-10-07 10:44:27,851 | INFO    | traffic_pipeline | loaded fact_accident              205173 rows
+2026-10-07 10:44:37,325 | INFO    | traffic_pipeline | loaded fact_vehicle               373308 rows
+2026-10-07 10:44:42,734 | INFO    | traffic_pipeline | loaded fact_casualty              261236 rows
+2026-10-07 10:44:42,903 | INFO    | traffic_pipeline | loaded agg_accidents_by_hour         336 rows
+2026-10-07 10:44:43,042 | INFO    | traffic_pipeline | loaded agg_accidents_by_day          731 rows
+2026-10-07 10:44:43,199 | INFO    | traffic_pipeline | loaded agg_accidents_by_road         331 rows
+2026-10-07 10:44:43,328 | INFO    | traffic_pipeline | loaded agg_condition_impact           57 rows
+2026-10-07 10:44:43,585 | INFO    | traffic_pipeline | loaded mart_location_hotspots       8660 rows
+2026-10-07 10:44:43,735 | INFO    | traffic_pipeline | loaded agg_vehicle_casualty           73 rows
+2026-10-07 10:45:01,002 | INFO    | traffic_pipeline | loaded ml_accident_features       205173 rows
+2026-10-07 10:45:01,444 | INFO    | traffic_pipeline | [20261007T050603Z] step 'load_warehouse' finished in 51.0s {'rows_in': 1061721, 'rows_out': 1061721}
+2026-10-07 10:45:01,444 | INFO    | traffic_pipeline | [20261007T050603Z] step 'verify_load' started
+2026-10-07 10:45:02,060 | INFO    | traffic_pipeline | [20261007T050603Z] step 'verify_load' finished in 0.6s {'rows_out': 16}
+2026-10-07 10:45:02,757 | INFO    | traffic_pipeline | === pipeline run 20261007T050603Z finished successfully ===

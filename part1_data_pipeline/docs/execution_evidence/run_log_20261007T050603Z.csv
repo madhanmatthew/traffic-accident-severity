@@ -1,0 +1,10 @@
+run_id,step,status,started_at_utc,finished_at_utc,duration_s,rows_in,rows_out,message
+20261007T050603Z,extract_stats19,SUCCESS,2026-10-07T05:06:05+00:00,2026-10-07T05:06:06+00:00,0.99,,839763,6 STATS19 files extracted
+20261007T050603Z,stage_stats19,SUCCESS,2026-10-07T05:06:06+00:00,2026-10-07T05:06:24+00:00,18.18,839763,839763,"collisions=205185, vehicles=373329, casualties=261249"
+20261007T050603Z,extract_weather,SUCCESS,2026-10-07T05:06:24+00:00,2026-10-07T05:13:34+00:00,429.87,,117,weather cell-years fetched=117 cached=0 failed=0
+20261007T050603Z,stage_weather,SUCCESS,2026-10-07T05:13:34+00:00,2026-10-07T05:13:40+00:00,6.13,117,1026312,117 weather files staged
+20261007T050603Z,validate_and_clean,SUCCESS,2026-10-07T05:13:40+00:00,2026-10-07T05:13:51+00:00,10.64,1866075,1866029,rejected=46 nullified=0 collision_reject_rate=0.006%
+20261007T050603Z,transform,SUCCESS,2026-10-07T05:13:51+00:00,2026-10-07T05:14:04+00:00,12.97,205173,205173,10 tables built; weather match rate 100.0%
+20261007T050603Z,build_marts,SUCCESS,2026-10-07T05:14:04+00:00,2026-10-07T05:14:10+00:00,5.85,205173,10188,"agg_accidents_by_hour=336, agg_accidents_by_day=731, agg_accidents_by_road=331, agg_condition_impact=57, mart_location_hotspots=8660, agg_vehicle_casualty=73"
+20261007T050603Z,load_warehouse,SUCCESS,2026-10-07T05:14:10+00:00,2026-10-07T05:15:01+00:00,51.03,1061721,1061721,16 tables loaded into sqlite
+20261007T050603Z,verify_load,SUCCESS,2026-10-07T05:15:01+00:00,2026-10-07T05:15:02+00:00,0.61,,16,row counts and referential integrity verified
