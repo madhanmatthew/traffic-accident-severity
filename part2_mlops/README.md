@@ -105,6 +105,6 @@ pytest
 Covers feature engineering, the chronological split, class weights, end-to-end pipeline inference (including unseen categories), the metric definitions, PSI and drift detection, and the API (predict, batch, validation errors, metrics, prediction log).
 
 ## Documentation
-* `docs/report.md`: Part 2 report (model development, evaluation, deployment, monitoring)
+* `docs/report.docx`: Part 2 report (model development, evaluation, deployment, monitoring)
 * `docs/model_lifecycle.md`: lifecycle and retraining criteria
-* `docs/execution_evidence/`: training log, leaderboard, metrics, monitoring reports, API checks
+* `docs/execution_evidence/`: champion metadata and metrics, confusion matrix, monitoring reports, API/MLflow/Streamlit screenshots

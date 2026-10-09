@@ -12,11 +12,11 @@ This pipeline combines the UK DfT **STATS19** road-collision data (2023–2024) 
 | 2 | Airflow DAG | `dags/traffic_accident_etl_dag.py` (monthly, 10 tasks, retries) |
 | 3 | Database schema and sample populated tables | `sql/schema_postgres.sql`, `src/traffic_pipeline/warehouse_schema.py`, `docs/execution_evidence/warehouse_tables_sample.md` |
 | 4 | Dataset source and access instructions | `docs/data_sources.md` |
-| 5 | Architecture diagram and pipeline flow | `docs/architecture.svg`, `docs/report.md` §3 |
+| 5 | Architecture diagram and pipeline flow | `docs/architecture.svg`, `docs/report.docx` §3 |
 | 6 | Data dictionary and validation rules | `docs/data_dictionary.md` (generated from the schema), `docs/validation_rules.md` |
 | 7 | Streamlit application | `dashboard/app.py` (6 tabs, 6 KPIs, filters) |
-| 8 | Project report | `docs/report.md` |
-| 9 | Execution evidence | `docs/execution_evidence/` (console log, run log, ingestion log, quality summary, rejected records, table samples). Add your dashboard and Airflow screenshots here. |
+| 8 | Project report | `docs/report.docx` |
+| 9 | Execution evidence | `docs/execution_evidence/` (console log, run log, ingestion log, quality summary, rejected records, table samples, dashboard screenshot). |
 | 10 | README | this file |
 
 ## Project layout
